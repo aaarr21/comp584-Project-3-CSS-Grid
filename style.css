@@ -33,81 +33,49 @@ div img {
 	max-width: 225px;
 }
 
-/* grid system -- mobile first! */
-/* flex contatiner */
+/* grid system -- simplified */
 
 .row {
-	display: flex;
-	flex-flow: row wrap;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	gap: 2rem;
+	padding: 2rem 0;
 }
 
-/* attribute selector to give some margin between columns and apply styles to flex items */
-
-[class*="col-"] {
-	margin-left: 4%;
-	flex: 0 0 92%;
+/* Card styling */
+article {
+	background-color: #f9f9f9;
+	padding: 1.5rem;
+	border-radius: 8px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	transition: transform 0.2s ease;
 }
 
-/* Add background colors to see how much space each column is taking */
-
-.col-1 {
-	background-color: #A3CDD9;
+article:hover {
+	transform: translateY(-5px);
 }
 
-.col-2 {
-	background-color: #FFFCE6;
+article h3 {
+	margin-top: 0;
+	color: #333;
 }
 
-.col-3 {
-	background-color: #C9DF8A;
+article p {
+	color: #666;
+	line-height: 1.6;
 }
 
+/* Remove old specific column classes */
+
+
+/* We can remove the specific col-1, col-2 etc background colors and spans as we want a clean uniform look */
+/* If we want to keep some variety we could, but "simple, clean" suggests uniformity */
+
+/* Reset legacy specific column styles */
+.col-1,
+.col-2,
+.col-3,
 .col-4 {
-	background-color: #E6D0DE;
-}
-
-/* Tablet Landscape Screen Sizes */
-@media only screen and (min-width: 480px) {
-
-	.col-1,
-	.col-2 {
-		flex: 0 0 44%;
-	}
-
-	.col-3 {
-		flex: 0 0 92%;
-	}
-
-	.col-4 {
-		flex: 0 0 92%;
-	}
-
-
-
-
-
-}
-
-/* Desktop screen Sizes */
-@media only screen and (min-width: 768px) {
-
-
-	.col-1 {
-		flex: 0 0 20%;
-	}
-
-
-
-	.col-2 {
-		flex: 0 0 44%;
-	}
-
-	.col-3 {
-		flex: 0 0 72%;
-	}
-
-	.col-4 {
-		flex: 0 0 92%;
-	}
-
+	background-color: transparent;
+	grid-column: auto;
 }
